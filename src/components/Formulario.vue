@@ -7,39 +7,39 @@
         <v-row>
           <v-col cols="12" md="4">
             <v-text-field
-              v-model="firstname"
+              v-model="nombreText"
               :rules="nameRules"
               :counter="10"
-              label="Edad"
+              label="Nombre"
+              
+              
+            ></v-text-field>
+          </v-col>
+
+          <v-col cols="12" md="4">
+            <v-text-field
+              v-model="edadText"
+              
+              :counter="10"
+              label="edad"
               type="number"
-              required
+             
             ></v-text-field>
           </v-col>
 
           <v-col cols="12" md="4">
             <v-text-field
-              v-model="firstname"
-              :rules="nameRules"
-              :counter="10"
-              label="First name"
+              v-model="fechaText"
               type="date"
-              required
-            ></v-text-field>
-          </v-col>
-
-          <v-col cols="12" md="4">
-            <v-text-field
-              v-model="lastname"
-              :rules="nameRules"
               :counter="10"
-              label="Last name"
+              label="Fecha"
               required
             ></v-text-field>
           </v-col>
 
           <v-col cols="12" md="4">
             <v-text-field
-              v-model="email"
+              v-model="emailText"
               :rules="emailRules"
               label="E-mail"
               required
@@ -53,16 +53,19 @@
 </template>
 
 <script>
+import productos from "./../assets/datos/productos.json"
 export default {
   data: () => ({
+      productos,
     valid: false,
-    firstname: "",
-    lastname: "",
+    nombreText: "",
+    edadText:"",
+    fechaText: "",
     nameRules: [
       (v) => !!v || "Name is required",
       (v) => v.length <= 10 || "Name must be less than 10 characters",
     ],
-    email: "",
+    emailText: "",
     emailRules: [
       (v) => !!v || "E-mail is required",
       (v) => /.+@.+/.test(v) || "E-mail must be valid",
@@ -72,6 +75,21 @@ export default {
   methods:{
         enviarDatos(){
            this.$refs.productos.validate()
+             const datoAgregar = {
+               nombre:this.nombreText,
+               edad:this.edadText,
+               fecha:this.fechaText,
+               email:this.emailText
+                }
+               this.productos.push(datoAgregar);
+
+               this.nombreText="",
+               this.edadText="",
+               this.fechaText="",
+               this.nombreText="",
+               this.emailText=""
+
+                
         }
   }
 };

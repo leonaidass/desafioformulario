@@ -1,0 +1,26 @@
+[
+  {
+    "nombre": "Leonardo",
+    "edad": 15,
+    "fecha": "2020-02-02",
+    "email": "email@emal"
+  },
+  {
+    "nombre": "juan",
+    "edad": 50,
+    "fecha": "2025-02-02",
+    "email": "email@emal"
+  },
+  {
+    "nombre": "Pedro",
+    "edad": 19,
+    "fecha": "2020-02-02",
+    "email": "email@emal"
+  },
+  {
+    "nombre": "Roberto",
+    "edad": 34,
+    "fecha": "2020-02-02",
+    "email": "email@emal"
+  }
+]
